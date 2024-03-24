@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:25:18 by asalo             #+#    #+#             */
-/*   Updated: 2024/02/08 12:03:43 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 10:09:56 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 long	ft_atoi(const char *str)
 {
-	int		i;
 	int		sign;
 	long	result;
 
-	i = 0;
 	sign = 1;
 	result = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-')
+	while (ft_lookup_space(*str))
+		str++;
+	if (*str == '-')
 	{
 		sign = -1;
-		i++;
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
+		result = (result * 10) + (*str - '0');
+		str++;
 	}
 	return (sign * result);
 }

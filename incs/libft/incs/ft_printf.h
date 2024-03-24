@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:31:38 by asalo             #+#    #+#             */
-/*   Updated: 2024/01/17 14:57:44 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 14:35:09 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
-# include <stdarg.h>
-# include <unistd.h>
-# include <stddef.h>
 
 int	ft_print_char(int c);
 int	ft_print_str(char *s);

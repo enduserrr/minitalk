@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:36:40 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/23 19:57:22 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 15:55:01 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,31 @@ void	bit_sender(int pid, char i)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(10);
+		usleep(40);
 		bit++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	int		pid;
 	int		i;
 	size_t	len;
 
 	i = 0;
-	if (argc == 3)
-	{
-		pid = ft_atol(argv[1]);
-		len = ft_strlen(argv[2]);
-		while (argv[2][i] != '\0' && len > 0)
-		{
-			bit_sender(pid, argv[2][i]);
-			i++;
-			len--;
-		}
-		bit_sender(pid, '\n');
-	}
-	else
+	len = ft_strlen(argv[2]);
+	if (argc != 3 || !argv[2][0]
+		|| (len + ft_strlen(&argv[1][0])) > MAX_LEN)
 	{
 		ft_putstr_fd("Error: wrong format.\n", 2);
 		ft_putstr_fd("Try: ./client <PID> <MESSAGE>\n", 1);
 		exit (1);
 	}
-	exit (0);
+	while (argv[2][i] != '\0' && len > 0)
+	{
+		bit_sender(ft_atoi(argv[1]), argv[2][i]);
+		i++;
+		len--;
+	}
+	bit_sender(ft_atoi(argv[1]), '\n');
+	return (0);
 }
-

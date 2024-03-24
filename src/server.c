@@ -6,21 +6,23 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 08:37:28 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/23 18:46:43 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 15:59:36 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/minitalk.h"
 
-/**
- * @brief Program won't shutdown without a failure or a shutdown signal
-*/
-
 void	signalhandler(int signal)
 {
 	static int	bit;
 	static int	byte;
+	static int	limit;
 
+	if (limit > MAX_LEN)
+	{
+		ft_putstr_fd("\nError: Max message length reached.\n", 2);
+		exit(1);
+	}
 	if (signal == SIGUSR1)
 		byte |= (0x01 << bit);
 	bit++;
@@ -29,17 +31,13 @@ void	signalhandler(int signal)
 		ft_print_char(byte);
 		bit = 0;
 		byte = 0;
+		limit++;
 	}
 }
 
-/**
- * @brief	The function 'pause()' haults the calling process
- * 			until a signal is received.
-*/
-
 int	main(int argc, char **argv)
 {
-	long int	pid;
+	int	pid;
 
 	(void)argv;
 	if (argc != 1)
@@ -49,10 +47,10 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	pid = getpid();
-	if (!pid || pid > INT_MAX || pid <= 0)
+	if (!pid || pid <= 0)
 		exit(1);
 	ft_putstr_fd("-> ", 1);
-	ft_putnbr_fd((int)pid, 1);
+	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\nWaiting for a message...\n", 1);
 	while (argc == 1)
 	{

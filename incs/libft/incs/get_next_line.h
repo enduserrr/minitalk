@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:52:40 by asalo             #+#    #+#             */
-/*   Updated: 2024/01/17 15:39:56 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 14:34:37 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # endif
 
 # include "libft.h"
-# include <stdlib.h>
-# include <unistd.h>
 
 void	strlcpy_mod(char *dst, const char *src, size_t dstsize);
 char	*strjoin_mod(char *s1, char *s2, int *eol);

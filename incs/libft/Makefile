@@ -6,7 +6,7 @@
 #    By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 14:37:45 by asalo             #+#    #+#              #
-#    Updated: 2024/03/23 18:58:17 by asalo            ###   ########.fr        #
+#    Updated: 2024/03/24 09:55:19 by asalo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SUB_DIR	= is to mem str put lst gnl printf
 
 SRCS	= $(addprefix $(SRC_DIR)/is/, ft_isalnum.c ft_isalpha.c \
 			ft_isascii.c ft_isdigit.c ft_isprint.c ft_isspace.c) \
+		$(addprefix $(SRC_DIR)/lookup/, ft_lookup_space.c) \
 		$(addprefix $(SRC_DIR)/to/, ft_atoi.c ft_itoa.c ft_tolower.c \
 			ft_toupper.c ft_atol.c ft_atod.c) \
 		$(addprefix $(SRC_DIR)/mem/, ft_bzero.c ft_calloc.c ft_memchr.c \

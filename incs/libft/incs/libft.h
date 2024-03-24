@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:43:35 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/23 17:38:56 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/24 14:38:49 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
+# include <stddef.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 
@@ -26,7 +28,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-
 /* 	FUNCTION PROTOTYPES		*/
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -34,6 +35,8 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_isspace(int c);
+
+int		ft_lookup_space(char c);
 
 char	*ft_itoa(int n);
 double	ft_atod(char *s);
