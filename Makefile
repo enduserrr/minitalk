@@ -26,8 +26,9 @@ $(NAME): 	$(OBJ_C)
 			@$(CC) $(OBJ_C) $(LIBFT) -o $(NAME)
 
 $(NAME_S):	$(OBJ_S)
-			$(CC) $(OBJ_S) $(LIBFT) -o $(NAME_S)
+			@$(CC) $(OBJ_S) $(LIBFT) -o $(NAME_S)
 			@echo "Made."
+			@echo "Start with: ./server"
 
 clean:
 			$(RM) $(OBJ_C)
