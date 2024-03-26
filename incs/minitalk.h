@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 11:35:51 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/25 09:51:31 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/26 10:04:00 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 # include <signal.h>
 # include "libft/incs/libft.h"
 
+static int client_pid;
+
 void		bit_sender(int pid, char i);
-void		signalhandler(int sig);
+void		signalhandler(int signal, siginfo_t *info, void *ucontent);
 
 #endif
